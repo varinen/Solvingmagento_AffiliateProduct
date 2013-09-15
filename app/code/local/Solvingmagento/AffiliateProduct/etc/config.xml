@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Solvingmagento_AffiliateProduct configuration
+*
+* @category Solvingmagento
+* @package Solvingmagento_AffiliateProduct
+* @author Oleg Ishenko <oleg.ishenko@solvingmagento.com>
+* @copyright 2013 Oleg Ishenko
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+* @version GIT: <0.1.0>
+* @link http://www.solvingmagento.com/
+*
+*/
+-->
+<config>
+    <modules>
+        <Solvingmagento_AffiliateProduct>
+            <version>0.1.1</version>
+        </Solvingmagento_AffiliateProduct>
+    </modules>
+    <global>
+        <blocks>
+            <solvingmagento_affiliateproduct>
+                <class>Solvingmagento_AffiliateProduct_Block</class>
+            </solvingmagento_affiliateproduct>
+        </blocks>
+        <helpers>
+            <solvingmagento_affiliateproduct>
+                <class>Solvingmagento_AffiliateProduct_Helper</class>
+            </solvingmagento_affiliateproduct>
+            <checkout>
+                <rewrite>
+                    <cart>Solvingmagento_AffiliateProduct_Helper_Cart</cart>
+                </rewrite>
+            </checkout>
+            <catalog>
+                <rewrite>
+                    <product_compare>Solvingmagento_AffiliateProduct_Helper_Compare</product_compare>
+                </rewrite>
+            </catalog>
+        </helpers>
+        <models>
+            <solvingmagento_affiliateproduct>
+                <class>Solvingmagento_AffiliateProduct_Model</class>
+            </solvingmagento_affiliateproduct>
+        </models>
+        <resources>
+            <solvingmagento_affiliateproduct_setup>
+                <setup>
+                    <module>Solvingmagento_AffiliateProduct</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </solvingmagento_affiliateproduct_setup>
+        </resources>
+        <catalog>
+            <product>
+                <type>
+                    <affiliate translate="label" module="solvingmagento_affiliateproduct">
+                        <label>Affiliate Product</label>
+                        <model>solvingmagento_affiliateproduct/product_type</model>
+                        <is_qty>0</is_qty>
+                        <composite>0</composite>
+                        <can_use_qty_decimals>0</can_use_qty_decimals>
+                    </affiliate>
+                </type>
+            </product>
+        </catalog>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <affiliate module="Solvingmagento_AffiliateProduct">
+                    <file>solvingmagento/affiliate.xml</file>
+                </affiliate>
+            </updates>
+        </layout>
+        <routers>
+            <affiliate>
+                <use>standard</use>
+                <args>
+                    <module>Solvingmagento_AffiliateProduct</module>
+                    <frontName>affiliate</frontName>
+                </args>
+            </affiliate>
+        </routers>
+        <secure_url>
+            <affiliate_redirect>/affiliate/redirect/</affiliate_redirect>
+        </secure_url>
+    </frontend>
+    <default>
+        <catalog>
+            <affiliate>
+                <authentication>1</authentication>
+            </affiliate>
+        </catalog>
+    </default>
+</config>
