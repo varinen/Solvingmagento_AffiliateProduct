@@ -1,5 +1,5 @@
-Solvingmagento_AffiliateProduct
-===============================
+Magento Custom Product Type Tutorial
+====================================
 
 This sample extension introduces a new custom product type in Magento. 
 It complements the [Magento custom product type tutorial].
